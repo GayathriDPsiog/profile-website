@@ -1,0 +1,7 @@
+/* theme.css: the only file that defines colours, fonts and spacing */
+:root {
+  --color-primary: #2c3e50;
+  --color-bg: #ffffff;
+  --color-text: #2c3e50;
+  --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
