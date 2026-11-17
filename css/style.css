@@ -1,0 +1,7 @@
+/* style.css: layout and components, always using var() */
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
