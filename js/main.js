@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
   setupInterestFilter();
   setupFlipCards();
   setupLightbox();
+  setupThemeToggle();
 });
 
 /* Footer: always show the current year */
@@ -280,6 +281,35 @@ function setupLightbox() {
   dialog.addEventListener('click', function (event) {
     if (event.target === dialog) {
       dialog.close();
+    }
+  });
+}
+
+/* Theme switch: toggles data-theme between light and dark and remembers the choice.
+   All colours for both themes are defined in theme.css. */
+function setupThemeToggle() {
+  var button = document.querySelector('.theme-toggle');
+  if (!button) {
+    return;
+  }
+  var root = document.documentElement;
+
+  function apply(theme) {
+    root.setAttribute('data-theme', theme);
+    var isDark = theme === 'dark';
+    button.setAttribute('aria-pressed', String(isDark));
+    button.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+
+  apply(root.getAttribute('data-theme') || 'light');
+
+  button.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    apply(next);
+    try {
+      localStorage.setItem('theme', next);
+    } catch (e) {
+      // Private mode or storage blocked: the switch still works for this visit
     }
   });
 }
