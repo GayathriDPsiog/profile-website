@@ -1,6 +1,6 @@
 /* ==========================================================
    theme.css: the ONLY file that defines the site's look.
-   Theme: Warm Sea (light). Every colour, font, size, radius,
+   Theme: Warm Sea (dark mode: the deep sea at night). Every colour, font, size, radius,
    shadow and animation speed used anywhere lives here.
    To change the whole site's theme, change only this file.
    ========================================================== */
@@ -23,48 +23,49 @@
   --sun: #f6c177;
   --white: #ffffff;
 
-  /* ---------- Semantic colours (what the site actually uses) ---------- */
-  --color-bg: var(--sand);
-  --color-surface: var(--white);
-  --color-section-alt: var(--foam);
-  --color-family-end: var(--peach);
-  --color-text: var(--ink);
-  --color-text-soft: var(--drift);
-  --color-heading: var(--ink);
-  --color-link: var(--deep-teal);
+  /* ---------- Semantic colours: DARK MODE (the deep sea at night) ---------- */
+  --color-bg: var(--ink);
+  --color-surface: #0f2c3d;
+  --color-section-alt: #0c2533;
+  --color-family-end: #2b1f22;
+  --color-text: #e6f6fb;
+  --color-text-soft: #9fbfcc;
+  --color-heading: var(--sand);
+  --color-link: var(--sea-light);
   --color-primary: var(--sea);
-  --color-primary-soft: var(--sea-light);
+  --color-primary-soft: #1f4a5e;
   --color-accent: var(--coral);
-  --color-accent-soft: var(--coral-soft);
-  --color-accent-text: var(--coral-deep);
-  --color-highlight: var(--sun);
+  --color-accent-soft: #6b3426;
+  --color-accent-text: #f7a68f;
+  --color-highlight: #4a3a22;
+  --color-on-accent: var(--ink);
 
-  --color-hero-top: var(--sky);
-  --color-hero-bottom: var(--sea-light);
+  --color-hero-top: #12384f;
+  --color-hero-bottom: var(--ink);
 
-  --color-nav-bg: rgba(247, 241, 232, 0.88);
-  --color-border: rgba(10, 31, 44, 0.08);
-  --color-border-strong: rgba(10, 31, 44, 0.18);
-  --color-overlay: rgba(10, 31, 44, 0.82);
-  --color-caption-bg: rgba(255, 255, 255, 0.92);
+  --color-nav-bg: rgba(10, 31, 44, 0.9);
+  --color-border: rgba(230, 246, 251, 0.1);
+  --color-border-strong: rgba(230, 246, 251, 0.22);
+  --color-overlay: rgba(0, 0, 0, 0.82);
+  --color-caption-bg: rgba(10, 31, 44, 0.9);
 
-  --color-logo-bg: var(--ink);
-  --color-logo-text: var(--sand);
+  --color-logo-bg: var(--sea);
+  --color-logo-text: var(--ink);
 
-  --color-btn-dark-bg: var(--ink);
-  --color-btn-dark-text: var(--sand);
-  --color-btn-light-bg: rgba(255, 255, 255, 0.6);
-  --color-btn-light-text: var(--ink);
+  --color-btn-dark-bg: var(--sea);
+  --color-btn-dark-text: var(--ink);
+  --color-btn-light-bg: rgba(255, 255, 255, 0.08);
+  --color-btn-light-text: #e6f6fb;
 
-  --color-footer-bg: var(--ink);
+  --color-footer-bg: #061520;
   --color-footer-text: #e6f6fb;
   --color-footer-soft: #8fb3c2;
   --color-footer-accent: var(--sea-light);
 
   /* ---------- Shadows ---------- */
-  --shadow-sm: 0 6px 16px rgba(10, 31, 44, 0.08);
-  --shadow-md: 0 14px 34px rgba(19, 90, 115, 0.12);
-  --shadow-lg: 0 30px 60px rgba(19, 90, 115, 0.3);
+  --shadow-sm: 0 6px 16px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.5);
 
   /* ---------- Typography ---------- */
   --font-heading: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;

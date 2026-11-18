@@ -925,7 +925,7 @@ a {
   gap: 0.75rem;
   padding: 1.75rem;
   background-color: var(--color-accent);
-  color: var(--color-text);
+  color: var(--color-on-accent);
   transform: rotateY(180deg);
 }
 
@@ -1171,7 +1171,7 @@ a {
   padding: 0 var(--space-md);
   border-radius: var(--radius-round);
   background-color: var(--color-accent);
-  color: var(--color-text);
+  color: var(--color-on-accent);
   font-weight: 700;
   text-decoration: none;
 }
