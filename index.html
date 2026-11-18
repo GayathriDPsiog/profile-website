@@ -59,12 +59,72 @@
       <div class="wave wave-front" aria-hidden="true"></div>
     </section>
 
-    <!-- Journey: route and stops added in feature/journey-timeline -->
-    <section id="journey" class="section section-alt">
+    <!-- Journey -->
+    <section id="journey" class="section section-alt journey">
       <div class="container">
-        <p class="section-label">01 · THE ROUTE SO FAR</p>
-        <h2 class="section-title">Professional Journey</h2>
-        <p class="section-intro">No fixed map, no perfect plan. Just a girl, a few brave turns, and every port teaching her something new.</p>
+        <div class="section-head section-head-center">
+          <p class="section-label">01 · THE ROUTE SO FAR</p>
+          <h2 class="section-title">Professional Journey</h2>
+          <p class="section-intro">No fixed map, no perfect plan. Just a girl, a few brave turns, and every port teaching her something new.</p>
+        </div>
+
+        <div class="route">
+          <img class="route-boat" src="images/hero/boat.svg" alt="" width="64" height="50">
+          <ol class="stops">
+          <li class="stop stop-left">
+            <article class="stop-card reveal">
+              <div class="stop-badge" aria-hidden="true">SKCT</div>
+              <div class="stop-body">
+                <p class="stop-meta">2020 – 2024 · Coimbatore</p>
+                <h3 class="stop-title">Sri Krishna College of Technology</h3>
+                <p class="stop-role">B.E. Computer Science &amp; Engineering</p>
+                <p class="stop-text">Where Java, SQL and Data Structures became my daily language, and late-night assignments, canteen chai and lifelong friends became my favourite memories.</p>
+              </div>
+            </article>
+            <span class="stop-marker" aria-hidden="true"></span>
+            <span class="stop-label">port 01 · where it began</span>
+          </li>
+
+          <li class="stop stop-right">
+            <article class="stop-card reveal">
+              <div class="stop-badge" aria-hidden="true">A</div>
+              <div class="stop-body">
+                <p class="stop-meta">Sep 2024 – Aug 2026 · Bengaluru</p>
+                <h3 class="stop-title">Accenture</h3>
+                <p class="stop-role">Application Support</p>
+                <p class="stop-text">My first big ship. Keeping applications running, solving issues under pressure, and learning how real-world software lives and breathes. The start of my career, and of a lot of confidence.</p>
+              </div>
+            </article>
+            <span class="stop-marker" aria-hidden="true"></span>
+            <span class="stop-label">port 02 · first big ship</span>
+          </li>
+
+          <li class="stop stop-left stop-current">
+            <article class="stop-card reveal">
+              <div class="stop-badge" aria-hidden="true">P</div>
+              <div class="stop-body">
+                <p class="stop-meta">2026 – Present</p>
+                <h3 class="stop-title">Psiog</h3>
+                <p class="stop-role">In training · learning &amp; hackathons</p>
+                <p class="stop-text">Levelling up every single day: learning new tech, building in hackathons, and turning "I don't know this yet" into "I just built this."</p>
+                <p class="stop-text stop-more" id="psiog-more" hidden>Fun fact: this very website is part of it. Hand-written in HTML, CSS and JavaScript, and shipped through my own CI/CD pipeline.</p>
+                <button class="show-more" type="button" aria-expanded="false" aria-controls="psiog-more">show more ▾</button>
+              </div>
+            </article>
+            <span class="stop-marker" aria-hidden="true"></span>
+            <span class="stop-label">anchored at Psiog · for now, happily</span>
+          </li>
+          </ol>
+        </div>
+
+        <div class="next-port reveal">
+          <img class="lighthouse" src="images/journey/lighthouse.svg" alt="" width="52" height="84">
+          <div class="next-port-card">
+            <p class="stop-meta">NEXT PORT · LOADING…</p>
+            <p class="next-port-title">A place where my code runs perfectly on the first try.</p>
+            <p class="next-port-text">Haven't found it yet. The boat keeps sailing.</p>
+          </div>
+        </div>
       </div>
     </section>
 

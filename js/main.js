@@ -3,12 +3,18 @@
    Vanilla JavaScript only, no libraries.
    ========================================================== */
 
+// Lets CSS know JavaScript is running (used by the scroll-reveal styles)
+document.documentElement.classList.add('js');
+
 document.addEventListener('DOMContentLoaded', function () {
   setFooterYear();
   setupMobileMenu();
   setupScrollProgress();
   setupActiveNavLink();
   splitLettersForAnimation();
+  setupScrollReveal();
+  setupRouteProgress();
+  setupShowMore();
 });
 
 /* Footer: always show the current year */
@@ -116,6 +122,72 @@ function splitLettersForAnimation() {
       });
 
       el.appendChild(wordSpan);
+    });
+  });
+}
+
+/* Scroll reveal: add .is-visible when an element enters the screen */
+function setupScrollReveal() {
+  var items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function (item) { item.classList.add('is-visible'); });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  items.forEach(function (item) { observer.observe(item); });
+}
+
+/* Journey route: the solid line and the boat follow your scroll.
+   0 = route not reached yet, 1 = scrolled past the whole route. */
+function setupRouteProgress() {
+  var route = document.querySelector('.route');
+  if (!route) {
+    return;
+  }
+  var ticking = false;
+
+  function update() {
+    var rect = route.getBoundingClientRect();
+    var middleOfScreen = window.innerHeight * 0.6;
+    var progress = (middleOfScreen - rect.top) / rect.height;
+    progress = Math.min(Math.max(progress, 0), 1);
+    route.style.setProperty('--route-progress', progress.toFixed(3));
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', update);
+  update();
+}
+
+/* "Show more" buttons: reveal extra text and update the label */
+function setupShowMore() {
+  document.querySelectorAll('.show-more').forEach(function (button) {
+    var target = document.getElementById(button.getAttribute('aria-controls'));
+    if (!target) {
+      return;
+    }
+
+    button.addEventListener('click', function () {
+      var isOpen = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!isOpen));
+      target.hidden = isOpen;
+      button.textContent = isOpen ? 'show more ▾' : 'show less ▴';
     });
   });
 }
