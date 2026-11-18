@@ -1,0 +1,100 @@
+/* ==========================================================
+   theme.css: the ONLY file that defines the site's look.
+   Theme: Warm Sea (light). Every colour, font, size, radius,
+   shadow and animation speed used anywhere lives here.
+   To change the whole site's theme, change only this file.
+   ========================================================== */
+
+:root {
+  /* ---------- Palette (raw colours) ---------- */
+  --sea: #48bfe3;
+  --sea-light: #9adcf0;
+  --sky: #bfe8f5;
+  --foam: #eaf7fb;
+  --foam-strong: #d9f2fa;
+  --sand: #f7f1e8;
+  --peach: #fbe9df;
+  --ink: #0a1f2c;
+  --deep-teal: #135a73;
+  --drift: #4a6572;
+  --coral: #f2795a;
+  --coral-soft: #f7b49f;
+  --coral-deep: #b84a2f;
+  --sun: #f6c177;
+  --white: #ffffff;
+
+  /* ---------- Semantic colours (what the site actually uses) ---------- */
+  --color-bg: var(--sand);
+  --color-surface: var(--white);
+  --color-section-alt: var(--foam);
+  --color-family-end: var(--peach);
+  --color-text: var(--ink);
+  --color-text-soft: var(--drift);
+  --color-heading: var(--ink);
+  --color-link: var(--deep-teal);
+  --color-primary: var(--sea);
+  --color-primary-soft: var(--sea-light);
+  --color-accent: var(--coral);
+  --color-accent-soft: var(--coral-soft);
+  --color-accent-text: var(--coral-deep);
+  --color-highlight: var(--sun);
+
+  --color-hero-top: var(--sky);
+  --color-hero-bottom: var(--sea-light);
+
+  --color-nav-bg: rgba(247, 241, 232, 0.88);
+  --color-border: rgba(10, 31, 44, 0.08);
+  --color-border-strong: rgba(10, 31, 44, 0.18);
+  --color-overlay: rgba(10, 31, 44, 0.82);
+  --color-caption-bg: rgba(255, 255, 255, 0.92);
+
+  --color-logo-bg: var(--ink);
+  --color-logo-text: var(--sand);
+
+  --color-btn-dark-bg: var(--ink);
+  --color-btn-dark-text: var(--sand);
+  --color-btn-light-bg: rgba(255, 255, 255, 0.6);
+  --color-btn-light-text: var(--ink);
+
+  --color-footer-bg: var(--ink);
+  --color-footer-text: #e6f6fb;
+  --color-footer-soft: #8fb3c2;
+  --color-footer-accent: var(--sea-light);
+
+  /* ---------- Shadows ---------- */
+  --shadow-sm: 0 6px 16px rgba(10, 31, 44, 0.08);
+  --shadow-md: 0 14px 34px rgba(19, 90, 115, 0.12);
+  --shadow-lg: 0 30px 60px rgba(19, 90, 115, 0.3);
+
+  /* ---------- Typography ---------- */
+  --font-heading: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+  --font-body: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+  --font-mono: 'Cascadia Code', Consolas, 'Courier New', monospace;
+
+  --font-size-base: 16px;
+  --font-size-small: 0.875rem;
+  --font-size-lead: 1.125rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h2: clamp(2.25rem, 4vw, 3.25rem);
+  --font-size-h1: clamp(3.25rem, 7vw, 7.25rem);
+
+  /* ---------- Spacing ---------- */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --space-2xl: 6.5rem;
+
+  /* ---------- Layout ---------- */
+  --max-width: 1240px;
+  --nav-height: 72px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-round: 999px;
+
+  /* ---------- Motion ---------- */
+  --transition: 0.3s ease;
+  --transition-slow: 0.7s ease;
+}
