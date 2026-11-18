@@ -26,4 +26,3 @@ jobs:
           urls: |
             https://gayathridpsiog.github.io/profile-website/
           uploadArtifacts: true
-          temporaryPublicStorage: true
