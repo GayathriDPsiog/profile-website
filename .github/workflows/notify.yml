@@ -1,0 +1,34 @@
+name: Deployment Notification
+
+on:
+  workflow_run:
+    workflows: ["Deploy to GitHub Pages"]
+    types: [completed]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report a successful deployment
+        if: github.event.workflow_run.conclusion == 'success'
+        run: |
+          echo "## ✅ Site deployed" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Live site: https://gayathridpsiog.github.io/profile-website/" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Commit: ${{ github.event.workflow_run.head_sha }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Triggered by: ${{ github.event.workflow_run.actor.login }}" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report a failed deployment
+        if: github.event.workflow_run.conclusion != 'success'
+        run: |
+          echo "## ❌ Deployment failed" >> "$GITHUB_STEP_SUMMARY"
+          echo "Check the run: ${{ github.event.workflow_run.html_url }}" >> "$GITHUB_STEP_SUMMARY"
+          exit 1
+
+      # Optional: post to Slack. Add a SLACK_WEBHOOK_URL secret first, then uncomment.
+      # - name: Send Slack message
+      #   if: github.event.workflow_run.conclusion == 'success'
+      #   run: |
+      #     curl -X POST -H 'Content-type: application/json' \
+      #       --data '{"text":"Profile website deployed: https://gayathridpsiog.github.io/profile-website/"}' \
+      #       "${{ secrets.SLACK_WEBHOOK_URL }}"
