@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
   setupShowMore();
   setupInterestFilter();
   setupFlipCards();
+  setupLightbox();
 });
 
 /* Footer: always show the current year */
@@ -233,5 +234,52 @@ function setupFlipCards() {
       var flipped = card.classList.toggle('is-flipped');
       card.setAttribute('aria-pressed', String(flipped));
     });
+  });
+}
+
+/* Hobbies: open a tile in a lightbox with previous / next and Esc to close */
+function setupLightbox() {
+  var dialog = document.getElementById('lightbox');
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('.hobby-tile'));
+  if (!dialog || !tiles.length || typeof dialog.showModal !== 'function') {
+    return;
+  }
+
+  var img = dialog.querySelector('.lightbox-img');
+  var title = dialog.querySelector('.lightbox-title');
+  var text = dialog.querySelector('.lightbox-text');
+  var current = 0;
+
+  function show(index) {
+    current = (index + tiles.length) % tiles.length;
+    var tile = tiles[current];
+    img.src = tile.dataset.img;
+    img.alt = tile.dataset.alt;
+    title.innerHTML = tile.dataset.title;
+    text.textContent = tile.dataset.text;
+  }
+
+  tiles.forEach(function (tile, index) {
+    tile.addEventListener('click', function () {
+      show(index);
+      dialog.showModal();
+    });
+  });
+
+  dialog.querySelector('.lightbox-prev').addEventListener('click', function () { show(current - 1); });
+  dialog.querySelector('.lightbox-next').addEventListener('click', function () { show(current + 1); });
+  dialog.querySelector('.lightbox-close').addEventListener('click', function () { dialog.close(); });
+
+  // Arrow keys move between hobbies while the lightbox is open (Esc is built in)
+  dialog.addEventListener('keydown', function (event) {
+    if (event.key === 'ArrowLeft') { show(current - 1); }
+    if (event.key === 'ArrowRight') { show(current + 1); }
+  });
+
+  // Clicking the dark backdrop closes it
+  dialog.addEventListener('click', function (event) {
+    if (event.target === dialog) {
+      dialog.close();
+    }
   });
 }

@@ -941,6 +941,157 @@ a {
   line-height: 1.5;
 }
 
+/* ---------- Hobbies: 2 x 2 gallery and lightbox ---------- */
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.hobby-tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 380px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-logo-bg);
+  font: inherit;
+  color: var(--color-text);
+  text-align: left;
+  cursor: zoom-in;
+  box-shadow: var(--shadow-md);
+}
+
+.hobby-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: scale var(--transition-slow);
+}
+
+.hobby-img-top {
+  object-position: center 30%;
+}
+
+.hobby-img-friends {
+  object-fit: contain;
+  object-position: center 30%;
+  background-color: var(--color-surface);
+}
+
+.hobby-tile:hover .hobby-img {
+  scale: 1.05;
+}
+
+.hobby-expand {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-caption-bg);
+  font-size: 1.25rem;
+}
+
+.hobby-caption {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  left: 14px;
+  display: block;
+  padding: 0.875rem 1.125rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-caption-bg);
+}
+
+.hobby-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.hobby-line {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--font-size-small);
+  color: var(--color-text-soft);
+}
+
+/* Lightbox uses the native <dialog> element: Esc closes it and focus stays inside */
+.lightbox {
+  width: min(860px, 92vw);
+  max-height: 92vh;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.lightbox::backdrop {
+  background-color: var(--color-overlay);
+}
+
+.lightbox-img {
+  width: 100%;
+  height: min(60vh, 480px);
+  object-fit: contain;
+  background-color: var(--color-logo-bg);
+}
+
+.lightbox-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 1.5rem 1.75rem;
+}
+
+.lightbox-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.lightbox-text {
+  margin: 6px 0 0;
+  color: var(--color-text-soft);
+}
+
+.lightbox-nav {
+  display: flex;
+  gap: 0.625rem;
+}
+
+.lightbox-prev,
+.lightbox-next,
+.lightbox-close {
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  font-size: 1.25rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border-radius: 50%;
+  background-color: var(--color-caption-bg);
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   padding: var(--space-xl) 0 var(--space-lg);
@@ -1129,6 +1280,19 @@ a {
     flex: 0 0 auto;
     width: 64px;
     height: 64px;
+  }
+
+  .hobby-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hobby-tile {
+    height: 320px;
+  }
+
+  .lightbox-info {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
