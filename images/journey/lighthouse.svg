@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52" height="84" viewBox="0 0 44 70" fill="none">
+  <style>
+    .beam { animation: beam 1.8s ease-in-out infinite; }
+    @keyframes beam { 0%, 100% { opacity: 0.15; } 50% { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { .beam { animation: none; opacity: 0.8; } }
+  </style>
+  <polygon class="beam" points="22,11 0,3 0,19" fill="#f6c177"/>
+  <polygon class="beam" points="22,11 44,3 44,19" fill="#f6c177"/>
+  <rect x="16" y="5" width="12" height="11" rx="2" fill="#f6c177" stroke="#0a1f2c" stroke-width="2"/>
+  <path d="M14 16 H30 L33 66 H11 Z" fill="#ffffff" stroke="#0a1f2c" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M12.6 34 H31.4 L32.2 46 H11.8 Z" fill="#f2795a"/>
+</svg>

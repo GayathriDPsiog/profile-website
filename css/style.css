@@ -171,6 +171,42 @@ a {
   color: var(--color-text-soft);
 }
 
+/* Wavy underline under every section title.
+   The wave is a mask shape; its colour comes from theme.css. */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 140px;
+  height: 14px;
+  margin-top: 0.75rem;
+  background-color: var(--color-primary);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 14'%3E%3Cpath d='M2 7 C 20 0, 30 14, 48 7 S 76 0, 94 7 S 122 14, 138 7' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 14'%3E%3Cpath d='M2 7 C 20 0, 30 14, 48 7 S 76 0, 94 7 S 122 14, 138 7' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.section-head-center {
+  text-align: center;
+}
+
+.section-head-center .section-title::after,
+.section-head-center .section-intro {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Scroll reveal: elements fade up when they enter the screen.
+   Only applied when JavaScript is running (html.js), so content is never hidden without JS. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ---------- Mobile menu button ---------- */
 .menu-toggle {
   display: none;
@@ -452,6 +488,210 @@ a {
   }
 }
 
+/* ---------- Journey: a vertical sea route ---------- */
+.route {
+  --route-progress: 0;
+  position: relative;
+  margin: var(--space-xl) 0 0;
+}
+
+/* The full route ahead: dashed */
+.route::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  bottom: 0;
+  left: 50%;
+  border-left: 4px dashed var(--color-primary);
+  transform: translateX(-50%);
+}
+
+/* The part already sailed: solid, grows as you scroll (set by main.js) */
+.route::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  width: 4px;
+  height: calc(var(--route-progress) * (100% - 30px));
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--color-primary), var(--color-link));
+  transform: translateX(-50%);
+}
+
+.route-boat {
+  position: absolute;
+  z-index: 2;
+  top: calc(30px + var(--route-progress) * (100% - 30px));
+  left: calc(50% + 12px);
+  width: 64px;
+  height: 50px;
+  transform: translateY(-80%);
+  animation: boat-bob 3.5s ease-in-out infinite;
+}
+
+.stops {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stop {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 96px;
+  margin-bottom: 2.75rem;
+}
+
+.stop-left .stop-card {
+  grid-column: 1;
+}
+
+.stop-right .stop-card {
+  grid-column: 2;
+}
+
+.stop-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.625rem;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.stop-badge {
+  display: flex;
+  flex: 0 0 76px;
+  align-items: center;
+  justify-content: center;
+  height: 76px;
+  border: 2px solid var(--color-primary-soft);
+  border-radius: 20px;
+  background-color: var(--color-bg);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-link);
+}
+
+.stop-body {
+  flex: 1;
+}
+
+.stop-meta {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-link);
+}
+
+.stop-title {
+  margin: var(--space-xs) 0 2px;
+  font-size: var(--font-size-h3);
+}
+
+.stop-role {
+  margin: 0 0 0.625rem;
+  font-weight: 700;
+  color: var(--color-accent-text);
+}
+
+.stop-text {
+  margin: 0;
+  line-height: 1.65;
+  color: var(--color-text-soft);
+}
+
+.stop-more {
+  margin-top: 0.625rem;
+}
+
+.show-more {
+  min-height: 44px;
+  margin-top: var(--space-sm);
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  color: var(--color-link);
+  cursor: pointer;
+}
+
+.stop-marker {
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  border: 4px solid var(--color-link);
+  border-radius: 50%;
+  background-color: var(--color-bg);
+  transform: translateX(-50%);
+}
+
+.stop-current .stop-marker {
+  top: 22px;
+  width: 32px;
+  height: 32px;
+  border: 5px solid var(--color-bg);
+  background-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent);
+}
+
+.stop-label {
+  position: absolute;
+  top: 58px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-link);
+}
+
+.stop-left .stop-label {
+  left: calc(50% + 34px);
+}
+
+.stop-right .stop-label {
+  right: calc(50% + 34px);
+  text-align: right;
+}
+
+.stop-current .stop-label {
+  font-weight: 700;
+  color: var(--color-accent-text);
+}
+
+.next-port {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.875rem;
+  padding-top: 0.625rem;
+  text-align: center;
+}
+
+.next-port-card {
+  padding: var(--space-md) 1.625rem;
+  border: 2px dashed var(--color-primary-soft);
+  border-radius: 18px;
+  background-color: var(--color-btn-light-bg);
+}
+
+.next-port-title {
+  margin: 6px 0 0;
+  font-size: 1.1875rem;
+  font-weight: 700;
+}
+
+.next-port-text {
+  margin: var(--space-xs) 0 0;
+  color: var(--color-text-soft);
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   padding: var(--space-xl) 0 var(--space-lg);
@@ -604,6 +844,42 @@ a {
 
   .footer-meta {
     text-align: left;
+  }
+
+  .route::before,
+  .route::after,
+  .stop-marker {
+    left: 18px;
+  }
+
+  .route-boat {
+    left: 26px;
+    width: 44px;
+    height: 34px;
+  }
+
+  .stop {
+    display: block;
+    padding-left: 52px;
+  }
+
+  .stop-label,
+  .stop-left .stop-label,
+  .stop-right .stop-label {
+    position: static;
+    display: block;
+    margin-top: var(--space-sm);
+    text-align: left;
+  }
+
+  .stop-card {
+    flex-direction: column;
+  }
+
+  .stop-badge {
+    flex: 0 0 auto;
+    width: 64px;
+    height: 64px;
   }
 }
 
