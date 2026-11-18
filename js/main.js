@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   setupRouteProgress();
   setupShowMore();
   setupInterestFilter();
+  setupFlipCards();
 });
 
 /* Footer: always show the current year */
@@ -221,6 +222,16 @@ function setupInterestFilter() {
           card.classList.add('pop-in', 'is-visible');
         }
       });
+    });
+  });
+}
+
+/* Family: tap or press Enter on a card to flip it (hover also flips on desktop) */
+function setupFlipCards() {
+  document.querySelectorAll('.flip-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var flipped = card.classList.toggle('is-flipped');
+      card.setAttribute('aria-pressed', String(flipped));
     });
   });
 }
