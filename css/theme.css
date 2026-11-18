@@ -38,6 +38,7 @@
   --color-accent-soft: var(--coral-soft);
   --color-accent-text: var(--coral-deep);
   --color-highlight: var(--sun);
+  --color-on-accent: var(--ink);
 
   --color-hero-top: var(--sky);
   --color-hero-bottom: var(--sea-light);
