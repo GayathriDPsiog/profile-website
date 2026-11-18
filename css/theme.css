@@ -45,6 +45,8 @@
   --color-nav-bg: rgba(247, 241, 232, 0.88);
   --color-border: rgba(10, 31, 44, 0.08);
   --color-border-strong: rgba(10, 31, 44, 0.18);
+  --color-overlay: rgba(10, 31, 44, 0.82);
+  --color-caption-bg: rgba(255, 255, 255, 0.92);
 
   --color-logo-bg: var(--ink);
   --color-logo-text: var(--sand);
