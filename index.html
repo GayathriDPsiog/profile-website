@@ -128,12 +128,54 @@
       </div>
     </section>
 
-    <!-- Interests: postcards and filter tabs added in feature/interests-cards -->
-    <section id="interests" class="section">
+    <!-- Interests -->
+    <section id="interests" class="section interests">
       <div class="container">
-        <p class="section-label">02 · POSTCARDS FROM THINGS I LOVE</p>
-        <h2 class="section-title">Personal Likings</h2>
-        <p class="section-intro">Little things that make my heart hum.</p>
+        <div class="section-head">
+          <p class="section-label">02 · POSTCARDS FROM THINGS I LOVE</p>
+          <h2 class="section-title">Personal Likings</h2>
+          <p class="section-intro">Little things that make my heart hum.</p>
+        </div>
+
+        <div class="filter-tabs" role="group" aria-label="Filter interests">
+          <button class="filter-tab is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-tab" type="button" data-filter="music" aria-pressed="false">Music</button>
+          <button class="filter-tab" type="button" data-filter="movies" aria-pressed="false">Movies</button>
+          <button class="filter-tab" type="button" data-filter="food" aria-pressed="false">Food</button>
+        </div>
+
+        <div class="postcards">
+          <article class="postcard reveal" data-category="music">
+            <div class="postcard-photo"><img src="images/interests/composers.webp" alt="Collage of my favourite music composers" width="389" height="772" loading="lazy" class="photo-bottom"></div>
+            <p class="postcard-tag">MUSIC</p>
+            <h3 class="postcard-title">The composers on repeat</h3>
+            <p class="postcard-text">Anirudh for the energy, Ilaiyaraaja for the soul, Yuvan for the feels.</p>
+          </article>
+          <article class="postcard reveal" data-category="music">
+            <div class="postcard-photo"><img src="images/interests/melodies.webp" alt="Grid of films with my favourite melodies" width="554" height="554" loading="lazy"></div>
+            <p class="postcard-tag">MUSIC</p>
+            <h3 class="postcard-title">Melodies, always</h3>
+            <p class="postcard-text">If it's soft, soulful and slightly heartbreaking, it's already on my playlist.</p>
+          </article>
+          <article class="postcard reveal" data-category="movies">
+            <div class="postcard-photo"><img src="images/interests/top5.webp" alt="Collage of my top five films" width="640" height="700" loading="lazy"></div>
+            <p class="postcard-tag">MOVIES</p>
+            <h3 class="postcard-title">My top 5</h3>
+            <p class="postcard-text">Doctor · Maaveeran · Tamasha · Dear Zindagi · Leo</p>
+          </article>
+          <article class="postcard reveal" data-category="food">
+            <div class="postcard-photo"><img src="images/interests/nonveg.webp" alt="Collage of non-vegetarian dishes including biryani" width="640" height="427" loading="lazy"></div>
+            <p class="postcard-tag">FOOD</p>
+            <h3 class="postcard-title">Non-veg heart</h3>
+            <p class="postcard-text">Mutton biryani. No further questions.</p>
+          </article>
+          <article class="postcard reveal" data-category="food">
+            <div class="postcard-photo"><img src="images/interests/veg.webp" alt="Collage of South Indian vegetarian dishes including dosa and idli" width="640" height="427" loading="lazy"></div>
+            <p class="postcard-tag">FOOD</p>
+            <h3 class="postcard-title">Veg comfort</h3>
+            <p class="postcard-text">A crispy dosa can fix almost any bad day.</p>
+          </article>
+        </div>
       </div>
     </section>
 

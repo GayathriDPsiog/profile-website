@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   setupScrollReveal();
   setupRouteProgress();
   setupShowMore();
+  setupInterestFilter();
 });
 
 /* Footer: always show the current year */
@@ -188,6 +189,38 @@ function setupShowMore() {
       button.setAttribute('aria-expanded', String(!isOpen));
       target.hidden = isOpen;
       button.textContent = isOpen ? 'show more ▾' : 'show less ▴';
+    });
+  });
+}
+
+/* Interests: filter tabs show only the postcards of one category */
+function setupInterestFilter() {
+  var tabs = document.querySelectorAll('.filter-tab');
+  var cards = document.querySelectorAll('.postcard');
+  if (!tabs.length) {
+    return;
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var filter = tab.dataset.filter;
+
+      tabs.forEach(function (t) {
+        var isActive = t === tab;
+        t.classList.toggle('is-active', isActive);
+        t.setAttribute('aria-pressed', String(isActive));
+      });
+
+      cards.forEach(function (card) {
+        var show = filter === 'all' || card.dataset.category === filter;
+        card.hidden = !show;
+        if (show) {
+          // Restart the pop-in animation so the cards "reshuffle"
+          card.classList.remove('pop-in');
+          void card.offsetWidth;
+          card.classList.add('pop-in', 'is-visible');
+        }
+      });
     });
   });
 }
