@@ -13,22 +13,50 @@
   <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
       <a href="#hero" class="logo" aria-label="Gayathri Dhandapani, back to top">GD</a>
-      <ul class="nav-links">
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#journey">Journey</a></li>
         <li><a href="#interests">Interests</a></li>
         <li><a href="#family">Family</a></li>
         <li><a href="#hobbies">Hobbies</a></li>
       </ul>
     </nav>
+    <div class="scroll-progress" aria-hidden="true">
+      <div class="scroll-progress-bar"></div>
+      <img class="scroll-progress-boat" src="images/hero/boat.svg" alt="" width="24" height="18">
+    </div>
   </header>
 
   <main>
-    <!-- Hero: full content added in feature/hero-section -->
+    <!-- Hero -->
     <section id="hero" class="hero">
-      <div class="container">
-        <h1 class="hero-name">Gayathri Dhandapani</h1>
-        <p class="hero-role">Aspiring Software Engineer</p>
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1 class="hero-name" data-split-letters>Gayathri Dhandapani</h1>
+          <p class="hero-role">Aspiring Software Engineer</p>
+          <p class="hero-about">A small-town girl with a big bag of dreams and no map, just curiosity. Still finding her route, still finding joy in tiny things, and surviving rather well, actually.</p>
+          <div class="hero-actions">
+            <a class="btn btn-dark" href="#journey">Set sail →</a>
+            <a class="btn btn-light" href="#footer">Say hello</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <div class="hero-sun" aria-hidden="true"></div>
+          <div class="porthole">
+            <div class="porthole-rope">
+              <img class="porthole-img" src="images/hero/gayathri.webp" alt="Portrait of Gayathri Dhandapani" width="800" height="800">
+            </div>
+          </div>
+          <p class="location-tag"><span class="location-dot" aria-hidden="true"></span>Based in Dharmapuri</p>
+        </div>
       </div>
+      <img class="hero-boat" src="images/hero/boat.svg" alt="" width="90" height="70">
+      <div class="wave wave-back" aria-hidden="true"></div>
+      <div class="wave wave-front" aria-hidden="true"></div>
     </section>
 
     <!-- Journey: route and stops added in feature/journey-timeline -->
